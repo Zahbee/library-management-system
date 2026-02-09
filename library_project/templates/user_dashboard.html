@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>User Dashboard</h2>
+
+<div class="card p-4 text-center">
+    <h5>Books Currently Borrowed</h5>
+    <h3>{{ borrowed_count }}</h3>
+</div>
+
+{% endblock %}
