@@ -1,0 +1,102 @@
+
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f5f7fa;
+}
+
+/* Navbar */
+
+
+.logo a {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.user-name {
+    color: #9ca3af;
+    margin-right: 20px;
+}
+
+.logout-btn {
+    background: #dc2626;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+/* Layout */
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* Card */
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* Buttons */
+button {
+    background: #2563eb;
+    border: none;
+    padding: 8px 14px;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Back Button */
+.back-btn {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #2563eb;
+    text-decoration: none;
+}
+
+
+
+/* Nav links */
+.nav-link {
+    margin-right: 18px;
+    color: #e5e7eb;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+/* Username badge */
+.user-badge {
+    background: #2563eb;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: white;
+    margin-right: 15px;
+}
+
+/* Logout button */
+.logout-btn {
+    background: #dc2626;
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+.logout-btn:hover {
+    background: #b91c1c;
+}

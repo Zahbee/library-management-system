@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <h2>Order Management</h2>
+
+    {% for item in order_items %}
+        <div style="margin-bottom:20px;">
+            <h4>Order ID: {{ item.order.id }}</h4>
+            <p>Product: {{ item.product.name }}</p>
+            <p>Quantity: {{ item.quantity }}</p>
+            <p>Current Status: {{ item.get_status_display }}</p>
+
+            <form method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="item_id" value="{{ item.id }}">
+
+                <select name="status">
+                    <option value="received">Received</option>
+                    <option value="ready">Ready for Shipping</option>
+                    <option value="out">Out For Delivery</option>
+                </select>
+
+                <button type="submit">Update</button>
+            </form>
+        </div>
+        <hr>
+    {% empty %}
+        <p>No orders yet.</p>
+    {% endfor %}
+</div>
+{% endblock %}

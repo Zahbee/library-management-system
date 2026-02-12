@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <h2>All Your Products</h2>
+
+    {% for product in products %}
+        <div style="margin-bottom:20px;">
+            <h4>{{ product.name }}</h4>
+
+            {% if product.image %}
+                <img src="{{ product.image.url }}" width="150">
+            {% endif %}
+
+            <p>Price: ₹{{ product.price }}</p>
+            <p>Available: {{ product.quantity }}</p>
+            <p>Status: {{ product.get_status_display }}</p>
+        </div>
+        <hr>
+    {% endfor %}
+</div>
+{% endblock %}

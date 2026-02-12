@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <h2>Manage Users</h2>
+
+    {% for user in users %}
+        <div style="margin-bottom:20px;">
+            <strong>{{ user.username }}</strong><br>
+            Membership: {{ user.get_membership_display }}<br>
+            Expiry: {{ user.membership_expiry }}
+
+            <form method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="user_id" value="{{ user.id }}">
+
+                <button name="action" value="extend_6m">Extend 6 Months</button>
+                <button name="action" value="extend_1y">Extend 1 Year</button>
+                <button name="action" value="cancel" style="background:red;">Cancel</button>
+            </form>
+        </div>
+        <hr>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if form %}
+    <div class="d-flex justify-content-start align-items-start" style="height: 80vh;">
+{% else %}
+    <div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
+{% endif %}
+
+    <div class="card {% if not form %}text-center{% endif %}" style="width: 40rem;">
+        <div class="card-body">
+            <h2 class="card-title {% if not form %}text-center{% endif %}">Register</h2>
+
+            {% if form %}
+                <form method="POST" class="form-horizontal">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="mb-3 row">
+                            <label for="{{ field.id_for_label }}" class="col-sm-4 col-form-label">
+                                {{ field.label }}
+                            </label>
+                            <div class="col-sm-8">
+                                {{ field }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </form>
+            {% else %}
+                <h4>Select Registration Type:</h4>
+                <div class="d-flex justify-content-center gap-2">
+                    <a href="/register/user/" class="btn btn-primary">User</a>
+                    <a href="/register/vendor/" class="btn btn-secondary">Vendor</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <h2>Your Orders</h2>
+
+    {% for order in orders %}
+        <div style="margin-bottom:20px;">
+            <h3>Order ID: {{ order.id }}</h3>
+            <p>Total: ₹{{ order.total }}</p>
+            <p>Date: {{ order.created_at }}</p>
+
+            <h4>Items:</h4>
+
+            {% for item in order.items.all %}
+                <p>
+                    Product: {{ item.product.name }} |
+                    Quantity: {{ item.quantity }} |
+                    Status: <strong>{{ item.get_status_display }}</strong>
+                </p>
+            {% endfor %}
+
+        </div>
+        <hr>
+    {% endfor %}
+</div>
+{% endblock %}

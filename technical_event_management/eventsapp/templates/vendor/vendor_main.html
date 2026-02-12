@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
+    <div class="card text-center" style="width: 40rem;">
+        <div class="card-body">
+            <h2 class="card-title">Vendor Dashboard</h2>
+            <p class="card-text">Welcome, {{ request.user.username }}</p>
+            <p class="card-text"><strong>Category:</strong> {{ request.user.vendor_category }}</p>
+            <p class="card-text"><strong>Membership:</strong> {{ request.user.get_membership_display }}</p>
+            <p class="card-text"><strong>Expiry:</strong> {{ request.user.membership_expiry }}</p>
+            <hr>
+            <div class="d-flex justify-content-center flex-wrap">
+                <a href="/vendor/items/" class="btn btn-primary m-2">Your Items</a>
+                <a href="/vendor/items/add/" class="btn btn-primary m-2">Add New Item</a>
+                <a href="/vendor/items/status/" class="btn btn-primary m-2">Product Status</a>
+                <a href="/vendor/membership/" class="btn btn-primary m-2">Your Membership</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

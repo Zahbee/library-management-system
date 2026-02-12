@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <h2>Select Vendor Category</h2>
+
+    <form method="GET">
+        <select name="category">
+            <option value="catering">Catering</option>
+            <option value="florist">Florist</option>
+            <option value="decoration">Decoration</option>
+            <option value="lighting">Lighting</option>
+        </select>
+        <button type="submit">Search</button>
+    </form>
+
+    <hr>
+
+    {% if vendors %}
+        <h3>Available Vendors:</h3>
+        <div class="row">
+        {% for vendor in vendors %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ vendor.username }}</h5>
+                        <a href="/user/vendors/{{ vendor.vendor_category }}/shop/{{ vendor.id }}/" class="btn btn-primary">Shop Items</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

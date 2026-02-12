@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <h2>Your Membership</h2>
+
+    <p>Current Plan: {{ request.user.get_membership_display }}</p>
+    <p>Expiry Date: {{ request.user.membership_expiry }}</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <select name="membership">
+            <option value="6m">6 Months</option>
+            <option value="1y">1 Year</option>
+            <option value="2y">2 Years</option>
+        </select>
+        <button type="submit">Extend Membership</button>
+    </form>
+</div>
+{% endblock %}
