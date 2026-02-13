@@ -49,7 +49,7 @@ class VendorProduct(models.Model):
     quantity = models.PositiveIntegerField(default=1)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     image = models.ImageField(upload_to='products/', blank=True, null=True)
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='received')
+    #status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='received')
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -115,4 +115,5 @@ class Guest(models.Model):
     name = models.CharField(max_length=200)
     phone = models.CharField(max_length=20)
     email = models.EmailField(blank=True)
+
     created_at = models.DateTimeField(auto_now_add=True)
