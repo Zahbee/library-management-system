@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>Add Book</h3>
+
+<form method="POST">
+    {% csrf_token %}
+    <input class="form-control mb-2" type="text" name="title" placeholder="Title" required>
+    <input class="form-control mb-2" type="text" name="author" placeholder="Author" required>
+    <input class="form-control mb-2" type="number" name="quantity" placeholder="Quantity" required>
+    <button class="btn btn-success">Add Book</button>
+</form>
+
+{% endblock %}
